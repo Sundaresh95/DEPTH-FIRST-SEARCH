@@ -90,48 +90,40 @@ G F <BR>
 
 ## PROGRAM:
 ```python
+from collections import deque, defaultdict
 
-
-from collections import deque
-
-def bfs(graph, start):
-    visited = set()
+def bfs(graph, start, visited, path):
     queue = deque([start])
-    traversal = []
-
-    visited.add(start)
+    visited[start] = True
 
     while queue:
-        node = queue.popleft()
-        traversal.append(node)
+        tmpnode = queue.popleft()
+        path.append(tmpnode)
 
-        for neighbor in graph[node]:
-            if neighbor not in visited:
-                visited.add(neighbor)
-                queue.append(neighbor)
+        for neighbour in sorted(graph[tmpnode]):
+            if not visited[neighbour]:
+                queue.append(neighbour)
+                visited[neighbour] = True
 
-    return traversal
+    return path
 
 
-V, E = map(int, input().split())
+graph = defaultdict(list)
 
-graph = {}
-for _ in range(E):
+n, e = map(int, input().split())
+
+for i in range(e):
     u, v = input().split()
-
-    if u not in graph:
-        graph[u] = []
-    if v not in graph:
-        graph[v] = []
-
     graph[u].append(v)
     graph[v].append(u)
 
-start = input("Enter starting vertex: ")
+start = '0' if '0' in graph else 'A'
 
-result = bfs(graph, start)
+path = []
+visited = defaultdict(bool)
 
-print(result)
+traversedpath = bfs(graph, start, visited, path)
+print(traversedpath)
 ```
 
 ## OUTPUT:
