@@ -87,6 +87,9 @@ G F <BR>
 ['A', 'B', 'C', 'F', 'E', 'D', 'G']
 
 <hr>
+## OUTPUT:
+<img width="935" height="287" alt="image" src="https://github.com/user-attachments/assets/e243de91-dfd2-4c58-9eb3-d6d45a523202" />
+
 
 <hr>
 <h3>Sample Input</h3>
