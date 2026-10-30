@@ -154,6 +154,11 @@ print(result)
 <hr>
 ['0', '1', '2', '3', '4']
 <hr>
+
+ ## OUTPUT:
+
+ <img width="930" height="210" alt="image" src="https://github.com/user-attachments/assets/62e8c52a-b1f6-4000-91b3-9851cebfe13d" />
+
 <h3>Result:</h3>
 <hr>
 <p>Thus,a Graph was constructed and implementation of Breadth First Search for the same graph was done successfully.</p>
