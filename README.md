@@ -88,6 +88,52 @@ G F <BR>
 
 <hr>
 
+## PROGRAM:
+```python
+
+
+from collections import deque
+
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start])
+    traversal = []
+
+    visited.add(start)
+
+    while queue:
+        node = queue.popleft()
+        traversal.append(node)
+
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+
+    return traversal
+
+
+V, E = map(int, input().split())
+
+graph = {}
+for _ in range(E):
+    u, v = input().split()
+
+    if u not in graph:
+        graph[u] = []
+    if v not in graph:
+        graph[v] = []
+
+    graph[u].append(v)
+    graph[v].append(u)
+
+start = input("Enter starting vertex: ")
+
+result = bfs(graph, start)
+
+print(result)
+```
+
 ## OUTPUT:
 
 <img width="935" height="287" alt="image" src="https://github.com/user-attachments/assets/e243de91-dfd2-4c58-9eb3-d6d45a523202" />
